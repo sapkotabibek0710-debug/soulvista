@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoulVista</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<div class="clouds" id="clouds"></div>
+
+<!-- Clean Navbar -->
+<nav class="navbar" id="navbar" style="display: none;">
+    <div class="logo">SoulVista</div>
+    <div class="nav-links">
+        <a href="#" onclick="showScreen('home-screen')">Home</a>
+        <a href="#" onclick="showScreen('about-screen')">About</a>
+        <a href="#" onclick="showScreen('contact-screen')">Contact</a>
+        <div class="dropdown">
+            <a href="#" id="gamemode-btn">Game Mode ▼</a>
+            <div class="dropdown-content" id="dropdown-content">
+                <a href="#" id="start-scan-btn">Spirit Animal Journey</a>
+            </div>
+        </div>
+    </div>
+    <button onclick="logout()" class="logout-btn">Logout</button>
+</nav>
+
+<div class="app">
+
+    <!-- LOGIN -->
+    <div id="login-screen" class="login-screen">
+        <div class="auth-card">
+            <h1>SoulVista</h1>
+            <p class="tagline">Discover the sky within you</p>
+
+            <input type="text" id="auth-name" placeholder="Your Name" style="display:none;">
+            <input type="email" id="auth-email" placeholder="Email Address">
+            <input type="password" id="auth-password" placeholder="Password">
+
+            <button onclick="handleAuth()" id="auth-button">Login</button>
+
+            <button onclick="googleLogin()" class="google-btn">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/2048px-Google_%22G%22_logo.svg.png" width="22">
+                Continue with Google
+            </button>
+
+            <p class="switch-text">
+                Don't have an account? 
+                <span onclick="toggleAuthMode()" id="mode-toggle">Register here</span>
+            </p>
+        </div>
+    </div>
+
+    <!-- HOME - More Attractive -->
+    <div id="home-screen" class="screen">
+        <div class="hero">
+            <h1>SoulVista</h1>
+            <div class="quote">"The sky knows the soul better than we know ourselves."</div>
+            <button onclick="startPersonalityScan()" class="big-btn">Begin Spirit Animal Journey</button>
+        </div>
+    </div>
+
+    <!-- SPIRIT ANIMAL JOURNEY (Game Screen) - More Beautiful -->
+    <div id="game-screen" class="screen">
+        <div class="progress">Question <span id="q-current">1</span> of 7</div>
+        <div class="ai-message">
+            <div class="question" id="question-text">The sky awaits your light...</div>
+        </div>
+        <div id="loader" class="loader" style="display:none;">The stars are whispering...</div>
+        <div class="options" id="options"></div>
+    </div>
+
+    <!-- RESULT -->
+    <div id="result-screen" class="result-screen">
+        <div class="result-panel">
+            <div class="result-title">THE SKY HAS SPOKEN</div>
+            <div class="character" id="character-name">UNKNOWN</div>
+            <div class="confidence" id="confidence">Match: 00%</div>
+            <div class="confidence-bar">
+                <div class="confidence-fill" id="confidence-fill"></div>
+            </div>
+            <div class="description" id="description"></div>
+            <div class="result-buttons">
+                <button onclick="retakeSameScan()">Journey Again</button>
+                <button onclick="showScreen('home-screen')">Return to Sky</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- About & Contact -->
+    <div id="about-screen" class="screen">
+        <h2>About SoulVista</h2>
+        <p>A gentle journey of self-discovery guided by the sky.</p>
+    </div>
+
+    <div id="contact-screen" class="screen">
+        <h2>Contact</h2>
+        <p>hello@soulvista.dev</p>
+    </div>
+
+</div>
+
+<script src="/js/app.js"></script>
+</body>
+</html>
